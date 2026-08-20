@@ -220,7 +220,7 @@ Chat history is saved in the session state and can be exported as a CSV with the
 
 | Question | Answer | Model Provider | Model Name | PDF File | Timestamp |
 |----------|--------|----------------|------------|---------------------|-----------|
-| What is this PDF about? | This PDF explains... | Groq | llama3-70b-8192 | file1.pdf, file2.pdf | 2025-07-03 21:00:00 |
+| What is this PDF about? | This PDF explains... | Groq | openai/gpt-oss-120b | file1.pdf, file2.pdf | 2025-07-03 21:00:00 |
 
 </details>
 

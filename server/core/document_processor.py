@@ -4,10 +4,12 @@ import aiofiles
 from typing import List
 from fastapi import UploadFile
 
-from langchain.document_loaders import PyPDFLoader
-from langchain.text_splitter import TokenTextSplitter
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_core.documents import Document
+from langchain_text_splitters import TokenTextSplitter
 
 from config.settings import TEMPFILE_UPLOAD_DIRECTORY
+from core.chunk_ids import CHUNK_SIZE, CHUNK_OVERLAP
 from utils.logger import logger
 
 
@@ -50,8 +52,11 @@ def load_documents_from_paths(file_paths: List[str]):
 
   return docs
 
-def split_documents_to_chunks(docs) -> List[str]:
-  text_splitter = TokenTextSplitter(chunk_size=500, chunk_overlap=50)
+def split_documents_to_chunks(docs) -> List[Document]:
+  # Params live in core.chunk_ids so that corpus_fingerprint() actually fingerprints
+  # the chunking config in use -- if these two drifted apart, the fingerprint would
+  # certify a chunking that isn't the one being run.
+  text_splitter = TokenTextSplitter(chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP)
   chunks = text_splitter.split_documents(docs)
   logger.debug(f"Split {len(docs)} docs into {len(chunks)} chunks")
   return chunks

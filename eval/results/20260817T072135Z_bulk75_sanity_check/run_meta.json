@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-08-17T07:21:35.536951+00:00",
+  "variant": "bulk75_sanity_check",
+  "provider": "groq",
+  "retriever": "dense_chroma",
+  "golden_set": "eval\\data\\bulk_draft.json",
+  "golden_set_version": "draft",
+  "n_questions": 75,
+  "n_excluded": 0,
+  "retrieval_depth": 50,
+  "ks": [
+    3,
+    5,
+    10
+  ],
+  "rr_cap": 50,
+  "corpus_fingerprint": "sha256:fc1a80babca34951c6008c83779f937c5c46cd358cfdbe7c75ee6de3707ed37b",
+  "collection_count": 2131,
+  "retrieval_deterministic": true,
+  "total_near_ties_in_topk": 0,
+  "ingest_manifest": {
+    "provider": "groq",
+    "ingested_at": "2026-08-14T14:46:09.231409+00:00",
+    "corpus_fingerprint": "sha256:fc1a80babca34951c6008c83779f937c5c46cd358cfdbe7c75ee6de3707ed37b",
+    "chunking_version": "v1",
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "pdf_count": 45,
+    "page_doc_count": 736,
+    "chunk_count": 2131,
+    "embedding_model": "sentence-transformers/all-MiniLM-L12-v2",
+    "library_versions": {
+      "pypdf": "6.14.2",
+      "langchain-text-splitters": "1.1.2",
+      "langchain-community": "0.4.2",
+      "chromadb": "1.5.9",
+      "sentence-transformers": "5.6.1"
+    }
+  },
+  "library_versions": {
+    "pypdf": "6.14.2",
+    "langchain-text-splitters": "1.1.2",
+    "langchain-community": "0.4.2",
+    "chromadb": "1.5.9",
+    "sentence-transformers": "5.6.1",
+    "torch": "2.13.0"
+  }
+}
